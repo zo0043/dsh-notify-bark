@@ -8,7 +8,7 @@
  */
 
 import { useState } from 'react'
-import type { SnapshotSelectorHook } from '@deepseek-ai/dsh-client-ui-slots'
+import type { SnapshotSelectorHook } from '@deepseek-ai/dsh-client-ui-renderer/client'
 import { EVENT_KEYS, type BarkSectionController, type BarkSectionSnapshot } from './index.ts'
 import * as styles from './BarkSettings.module.css'
 
@@ -19,13 +19,13 @@ export interface BarkSettingsSectionProps {
   /** Host RPC controller for the bark namespace. */
   controller: BarkSectionController
   /** Selector hook over the controller's snapshot store. */
-  useBark: SnapshotSelectorHook<BarkSectionSnapshot>
+  useSnapshot: SnapshotSelectorHook<BarkSectionSnapshot>
 }
 
 /** Render the Bark notifications settings section. */
 export function BarkSettingsSection(props: BarkSettingsSectionProps): React.ReactElement | null {
-  const { t, controller, useBark } = props
-  const snap = useBark((snapshot) => snapshot)
+  const { t, controller, useSnapshot } = props
+  const snap = useSnapshot((snapshot) => snapshot)
   const [urlDraft, setUrlDraft] = useState('')
   const [groupDraft, setGroupDraft] = useState('')
   const [bodyCharsDraft, setBodyCharsDraft] = useState('')
