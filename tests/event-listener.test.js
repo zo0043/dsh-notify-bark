@@ -13,7 +13,8 @@ import { DEFAULT_SETTINGS } from '../lib/settings-store.js'
 function session({ id = 's1', cwd, events = [] } = {}) {
   const header = {}
   if (cwd !== undefined) header.cwd = cwd
-  return { id, header, events }
+  // dsh-session >= 0.1.5 reads the log through snapshotEvents().
+  return { id, header, snapshotEvents: () => events }
 }
 
 function sessionWithCwd(cwd) {

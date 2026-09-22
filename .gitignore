@@ -1,5 +1,6 @@
 # 依赖与本地缓存
 node_modules/
+node_modules
 .pnpm-store/
 .npm-cache/
 

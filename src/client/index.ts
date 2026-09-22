@@ -9,12 +9,15 @@
  * @module dsh-notify-bark/client
  */
 
-import type { ClientContext } from '@deepseek-ai/dsh-client-runtime/client'
+// dsh-client-runtime was discontinued after 0.1.1-rc.2; the client context is
+// the plain cordis Context (the same convention dsh-client-locale uses).
+import type { Context as ClientContext } from '@deepseek-ai/cordis'
 // Type-only: pulls the locale plugin's Context merge (ctx.locale).
 import type {} from '@deepseek-ai/dsh-client-locale/client'
 // Type-only: pulls the ui-slots Context merge (ctx.slots) and the locale map.
 import type {} from '@deepseek-ai/dsh-client-ui-slots'
-import { createSnapshotStore } from '@deepseek-ai/dsh-client-runtime/client'
+// createSnapshotStore moved to dsh-client-store in 0.1.5 (same export name).
+import { createSnapshotStore } from '@deepseek-ai/dsh-client-store'
 import { BarkSettingsSection } from './BarkSettings.tsx'
 import { en, zh, type BarkNotifyKey } from './locales.ts'
 

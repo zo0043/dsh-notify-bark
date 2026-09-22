@@ -4,7 +4,7 @@
  * Host answers with a masked status and accepts new values only.
  * @module dsh-notify-bark/rpc-contract
  */
-import type { RpcResult } from '@deepseek-ai/dsh-host-apiproxy/api';
+import type { ConnectionRpcResult as RpcResult } from '@deepseek-ai/dsh-client-connection';
 import type { BarkSettings } from './settings-store.ts';
 /** Logical RPC channel owned by this plugin (registered with loopback authority). */
 export declare const BARK_RPC_CHANNEL: "/dsh-notify-bark";

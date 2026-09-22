@@ -5,7 +5,9 @@
  * @module dsh-notify-bark/rpc-contract
  */
 
-import type { RpcResult } from '@deepseek-ai/dsh-host-apiproxy/api'
+// dsh-host-apiproxy was discontinued after 0.1.1-rc.2; the RPC result shape
+// now lives in the connection package (exported as ConnectionRpcResult).
+import type { ConnectionRpcResult as RpcResult } from '@deepseek-ai/dsh-client-connection'
 import type { BarkSettings } from './settings-store.ts'
 
 /** Logical RPC channel owned by this plugin (registered with loopback authority). */

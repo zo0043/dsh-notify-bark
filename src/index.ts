@@ -23,7 +23,6 @@ import type {} from '@deepseek-ai/dsh-settings'
 import type {} from '@deepseek-ai/dsh-session'
 import { createEventListener } from './event-listener.ts'
 import { registerBarkRpc } from './rpc.ts'
-import { settingsNamespace } from '@deepseek-ai/dsh-settings'
 import {
   BARK_SETTINGS_NAMESPACE,
   DEFAULT_SETTINGS,
@@ -59,7 +58,9 @@ export function apply(ctx: Context, config: Partial<BarkSettings> = {}): void {
   let persist: ((patch: object) => Promise<void>) | undefined
 
   ctx.inject(['settings'], (sctx) => {
-    const scope = sctx.settings.register(settingsNamespace(BARK_SETTINGS_NAMESPACE), barkSettingsSchema, {
+    // dsh-settings >= 0.1.5 dropped the `settingsNamespace` helper: `register()`
+    // validates and brands the plain namespace string itself.
+    const scope = sctx.settings.register(BARK_SETTINGS_NAMESPACE, barkSettingsSchema, {
       base,
       applies: 'live',
     })

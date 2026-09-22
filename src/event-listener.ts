@@ -39,7 +39,9 @@ export interface NotificationIntent {
 
 /** Pull the last assistant reply's text blocks from the session log. */
 export function lastAssistantText(session: Session): string {
-  const events = session.events
+  // dsh-session >= 0.1.5 keeps the log private; snapshotEvents() is the
+  // public read (0.1.1-rc.2 exposed a plain `events` array).
+  const events = session.snapshotEvents()
   for (let index = events.length - 1; index >= 0; index -= 1) {
     const event = events[index] as SessionEvent | undefined
     if (event === undefined || event.type !== 'assistant/message') continue

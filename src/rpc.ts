@@ -111,7 +111,9 @@ export function registerBarkRpc(ctx: Context, deps: BarkRpcDeps): void {
     }
 
     sctx.effect(() => {
-      const dispose = sctx.connection.rpc.handle(BARK_RPC_CHANNEL, handler, { authority: 'loopback' })
+      // dsh-client-connection >= 0.1.5 takes (channel, handler); the old
+      // `{ authority: 'loopback' }` option no longer exists.
+      const dispose = sctx.connection.rpc.handle(BARK_RPC_CHANNEL, handler)
       return () => {
         void dispose()
       }
