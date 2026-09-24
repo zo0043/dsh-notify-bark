@@ -1,3 +1,7 @@
+> [!MIGRATED]
+> **本仓库已迁移至 [`zo0043/dsh-plugins`](https://github.com/zo0043/dsh-plugins)（private monorepo），不再独立维护。**
+> 新代码见该仓库 `packages/dsh-notify-bark`。上游 fork 关系保留：上游仍是 [`pc439527/dsh-notify-bark`](https://github.com/pc439527/dsh-notify-bark)，同步策略见 monorepo `docs/upstream/dsh-notify-bark.md`。（2026-09-24 归档）
+
 # dsh-notify-bark
 
 [![awesome · DSH plugin](https://awesome-dsh-plugin.com/badge.svg)](https://awesome-dsh-plugin.com)
